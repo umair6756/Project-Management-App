@@ -65,6 +65,8 @@ import ProjectDetailPage from './pages/ProjectDetailPage.jsx'
 import {sampleProjects} from './components/projects/sampleProjects'
 import ProjectExample from './pages/ProjectExample.jsx'
 
+import TaskPage from './pages/TaskPage.jsx'
+
 export default function App() {
   // const [projects, setProjects] = useState([]);
 
@@ -80,6 +82,8 @@ export default function App() {
         <Route path="/project" element={<ProjectPage/>} />
         <Route path="/project/:id" element={<ProjectDetailPage projects={sampleProjects}/>} />
         <Route path="/example" element={<ProjectExample />} />
+        <Route path="/task" element={<TaskPage />} />
+
 
 
 

@@ -7,6 +7,7 @@ import ProjectCharts from './ProjectCharts';
 import ProjectList from './ProjectList';
 import AddProjectForm from './AddProjectForm';
 import { sampleProjects, calculateStats } from './sampleProjects'; // Import from the new file
+import Header from '../common/Header.jsx'
 
 const MainContent = () => {
   const [projects, setProjects] = useState([]);
@@ -165,7 +166,7 @@ const MainContent = () => {
   return (
     <div className=" h-screen  overflow-auto bg-[var(--secondary-bg)] p-4 md:p-8">
       {/* Header */}
-      <motion.header 
+      {/* <motion.header 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -196,7 +197,16 @@ const MainContent = () => {
             </motion.button>
           </div>
         </div>
-      </motion.header>
+      </motion.header> */}
+
+
+      <Header
+  heading="Project Dashboard"
+  subheading="Track and manage all your projects in one place"
+  showFilters={showFilters}
+  onToggleFilters={() => setShowFilters(!showFilters)}
+  onAddProject={() => setShowAddForm(true)}
+/>
       
       <ProjectStats stats={stats} />
       
