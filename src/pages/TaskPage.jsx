@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Sidebar from '../components/common/Sidebar';
 import TopNav from '../components/common/TopNav';
-import MainContent from '../components/projects/MainContent';
 import { ThemeProvider } from '../context/ThemeContext';
 
 import '../App.css'
+import MainContent from '../components/task/MainContent';
 
 const TaskPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -44,6 +44,7 @@ const TaskPage = () => {
             toggleSidebar={toggleSidebar} 
           />
           {/* <MainContent /> */}
+          <MainContent/>
         </div>
       </div>
     </ThemeProvider>

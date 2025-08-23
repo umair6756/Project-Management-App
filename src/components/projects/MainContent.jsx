@@ -203,6 +203,7 @@ const MainContent = () => {
       <Header
   heading="Project Dashboard"
   subheading="Track and manage all your projects in one place"
+  buttonHeading="Add Project"
   showFilters={showFilters}
   onToggleFilters={() => setShowFilters(!showFilters)}
   onAddProject={() => setShowAddForm(true)}
@@ -218,8 +219,6 @@ const MainContent = () => {
       />
       
       <ProjectCharts 
-        activeChart={activeChart} 
-        setActiveChart={setActiveChart} 
       />
       
       <ProjectList 

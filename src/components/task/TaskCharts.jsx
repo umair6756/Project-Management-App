@@ -299,7 +299,7 @@
 
 import { motion } from 'framer-motion';
 import { Chart as ChartJS, BarElement, LineElement, PointElement, PieController, ArcElement, LinearScale, CategoryScale, Tooltip, Legend } from 'chart.js';
-import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2';
+// import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2';
 import { useState } from 'react';
 import ChartCard from '../common/ChartCard.jsx'
 ChartJS.register(
@@ -307,117 +307,54 @@ ChartJS.register(
   LinearScale, CategoryScale, Tooltip, Legend
 );
 
-const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: 'top',
-      labels: {
-        font: {
-          family: "'Inter', sans-serif",
-          size: 13
-        },
-        padding: 20,
-        usePointStyle: true,
-        pointStyle: 'circle'
-      }
-    },
-    tooltip: {
-      backgroundColor: '#1F2937',
-      titleFont: {
-        family: "'Inter', sans-serif",
-        size: 14
-      },
-      bodyFont: {
-        family: "'Inter', sans-serif",
-        size: 13
-      },
-      padding: 12,
-      usePointStyle: true,
-      callbacks: {
-        label: function(context) {
-          return `${context.dataset.label}: ${context.raw}`;
-        }
-      }
-    }
-  },
-  scales: {
-    y: {
-      beginAtZero: true,
-      grid: {
-        drawBorder: false,
-        color: '#E5E7EB'
-      },
-      ticks: {
-        font: {
-          family: "'Inter', sans-serif"
-        }
-      }
-    },
-    x: {
-      grid: {
-        display: false,
-        drawBorder: false
-      },
-      ticks: {
-        font: {
-          family: "'Inter', sans-serif"
-        }
-      }
-    }
-  }
-};
-
-// Default data structure
-const defaultChartData = {
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  datasets: [
-    {
-      label: 'Completed',
-      data: [3, 5, 7, 9, 6, 8, 10, 12, 9, 11, 13, 15],
+const chartData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+      {
+        label: 'Tasks Completed',
+        data: [12, 19, 15, 28, 22, 24, 31, 25, 28, 32, 35, 40],
       backgroundColor: '#10B981',
       borderColor: '#10B981',
-      borderWidth: 2,
-      tension: 0.4,
-      fill: false
-    },
-    {
-      label: 'In Progress',
-      data: [5, 8, 6, 9, 12, 10, 8, 6, 9, 7, 10, 8],
+        borderWidth: 2,
+        tension: 0.4,
+        fill: false
+      },
+      {
+        label: 'Tasks In Progress',
+        data: [8, 12, 15, 10, 14, 16, 12, 18, 15, 12, 10, 8],
       backgroundColor: '#3B82F6',
       borderColor: '#3B82F6',
-      borderWidth: 2,
-      tension: 0.4,
-      fill: false
-    },
-    {
-      label: 'Pending',
-      data: [8, 5, 7, 4, 6, 3, 5, 7, 4, 6, 3, 2],
+        borderWidth: 2,
+        tension: 0.4,
+        fill: false
+      },
+      {
+        label: 'Tasks Overdue',
+        data: [2, 3, 5, 4, 6, 3, 5, 4, 3, 2, 1, 0],
       backgroundColor: '#F59E0B',
       borderColor: '#F59E0B',
-      borderWidth: 2,
-      tension: 0.4,
-      fill: false
-    }
-  ]
-};
-
-const defaultPieData = {
-  labels: ['High Priority', 'Medium Priority', 'Low Priority'],
-  datasets: [
-    {
-      data: [12, 19, 8],
+        borderWidth: 2,
+        tension: 0.4,
+        fill: false
+      }
+    ]
+  };
+  
+  const pieData = {
+    labels: ['High Priority', 'Medium Priority', 'Low Priority'],
+    datasets: [
+      {
+        data: [15, 25, 10],
       backgroundColor: [
         '#EF4444',
         '#F59E0B',
         '#10B981'
       ],
-      borderWidth: 0,
-      hoverOffset: 10
-    }
-  ]
-};
+        borderWidth: 0,
+        hoverOffset: 10
+      }
+    ]
+  };
 
 const ProjectCharts = () => {
   const [activeChart, setActiveChart] = useState('bar');
@@ -426,9 +363,9 @@ const ProjectCharts = () => {
 <ChartCard
   activeChart={activeChart}
   setActiveChart={setActiveChart}
-  title="Project Progress"
-  chartData={defaultChartData}
-  pieData={defaultPieData}
+  title="Task Progress"
+  chartData={chartData}
+  pieData={pieData}
 />
 </>)};
 

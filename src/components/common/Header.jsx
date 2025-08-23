@@ -12,6 +12,7 @@ import { FiFilter, FiChevronUp, FiChevronDown, FiPlus } from "react-icons/fi";
 export default function DashboardHeader({
   heading,
   subheading,
+  buttonHeading,
   showFilters,
   onToggleFilters,
   onAddProject,
@@ -45,7 +46,7 @@ export default function DashboardHeader({
               <FiChevronDown className="ml-2" />
             )}
           </button>
-          {onAddProject && (
+          {/* {onAddProject && ( */}
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -53,9 +54,9 @@ export default function DashboardHeader({
               className="flex items-center px-4 py-2 bg-[var(--accent-color)] rounded-lg shadow-sm text-sm font-medium text-white hover:bg-[var(--accent-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] transition-colors"
             >
               <FiPlus className="mr-2" />
-              Add Project
+              {buttonHeading}
             </motion.button>
-          )}
+          {/* )} */}
         </div>
       </div>
     </motion.header>
